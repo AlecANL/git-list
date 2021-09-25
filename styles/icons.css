@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('/fonts/icomoon.eot?i8r81d');
+  src: url('/fonts/icomoon.eot?i8r81d#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon.ttf?i8r81d') format('truetype'),
+    url('/fonts/icomoon.woff?i8r81d') format('woff'),
+    url('/fonts/icomoon.svg?i8r81d#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-check:before {
+  content: '\e909';
+}
+.icon-star:before {
+  content: '\e90a';
+}
+.icon-twitter:before {
+  content: '\e90b';
+}
+.icon-link:before {
+  content: '\e90c';
+}
+.icon-close:before {
+  content: '\e904';
+}
+.icon-github:before {
+  content: '\e905';
+}
+.icon-heart:before {
+  content: '\e906';
+}
+.icon-home:before {
+  content: '\e907';
+}
+.icon-people:before {
+  content: '\e908';
+}
+.icon-branch:before {
+  content: '\e903';
+}
+.icon-book:before {
+  content: '\e901';
+}
+.icon-arrow-down:before {
+  content: '\e900';
+}
+.icon-badge-location:before {
+  content: '\e902';
+}
