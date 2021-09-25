@@ -5,10 +5,11 @@ export const LayoutStyled = styled.div`
   @media screen and (min-width: 768px) {
     outline: 1px solid green;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 1rem;
   }
   @media screen and (min-width: 1024px) {
-    grid-template-columns: 358px 1fr;
+    padding-inline: 5rem;
+    gap: 2rem;
   }
 `;

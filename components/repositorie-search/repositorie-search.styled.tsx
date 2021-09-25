@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const RepositorieSearchStyled = styled.section`
   position: relative;
-  outline: 1px solid green;
+  /* outline: 1px solid green; */
+  border-block-end: 1px solid var(--grey-2);
   padding-block: 2.5rem;
   .input-field {
     padding-block: 0.5rem;
@@ -22,7 +23,7 @@ export const RepositorieSearchStyled = styled.section`
       padding-block: 0.5rem;
       font: var(--body2-semi-bold);
     }
-    outline: 1px solid green;
+    /* outline: 1px solid green; */
   }
   @media screen and (min-width: 768px) {
     padding-block-start: 0;
@@ -43,6 +44,7 @@ export const FilterOptionsStyled = styled.div`
   margin-block-start: 1rem;
   border: 1px solid var(--grey-2);
   border-radius: 0.5rem;
+  background-color: #fff;
   .icon-close {
     cursor: pointer;
   }
@@ -69,5 +71,9 @@ export const FilterOptionsStyled = styled.div`
   li span {
     margin-inline-start: 1rem;
     text-transform: capitalize;
+  }
+  @media screen and (min-width: 768px) {
+    inset-inline-end: 3.125rem;
+    margin-block-start: 3.75rem;
   }
 `;

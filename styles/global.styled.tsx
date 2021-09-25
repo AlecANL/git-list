@@ -4,6 +4,7 @@ export const GlobalStyles = createGlobalStyle`
 
 :root {
   --baeFont:'Inter', sans-serif;
+  --bg-topic: #ddf4ff;
   --primary: #57a6ff; 
   --white: #fffffe; 
   --black: #141414; 

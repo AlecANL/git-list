@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const ProfileStyled = styled.aside`
-  outline: 1px solid red;
+  display: flex;
+  flex-direction: column;
   .user {
     display: flex;
     gap: 1rem;
     align-items: center;
-    outline: 1px solid green;
   }
   .profession {
     margin-block: 1.5rem 1rem;
@@ -25,16 +25,27 @@ export const ProfileStyled = styled.aside`
   @media screen and (min-width: 768px) {
     .user {
       flex-direction: column;
+      order: 1;
+    }
+    .user-info {
+      order: 3;
+    }
+    .profession {
+      margin-block-start: 0;
+    }
+    .user-buttons {
+      order: 2;
+      margin-block: 1.5rem;
     }
   }
   @media screen and (min-width: 1024px) {
-    /* padding-inline-start: 1.25rem; */
+    /* padding-inline-start: 3.125rem; */
     /* inline-size: 300px; */
   }
 `;
 
 export const Avatar = styled.div`
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
   inline-size: 5rem;
   block-size: 5rem;
   border-radius: 50%;
@@ -47,7 +58,7 @@ export const Avatar = styled.div`
 `;
 
 export const UserName = styled.div`
-  outline: 1px solid blue;
+  /* outline: 1px solid blue; */
   .name {
     font: var(--headline1);
   }
@@ -60,19 +71,20 @@ export const UserName = styled.div`
 `;
 
 export const FollowsStyled = styled.div`
-  small {
-    font: var(--body2-regular);
-  }
-
   display: flex;
   gap: 1rem;
   overflow: auto;
+  flex-wrap: wrap;
+  row-gap: 4px;
+  small {
+    font: var(--body2-regular);
+  }
 
   span {
     font: var(--body2-semi-bold);
   }
   .followers-item {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     display: flex;
     gap: 0.5rem;
     align-items: center;
@@ -82,10 +94,12 @@ export const FollowsStyled = styled.div`
       content: '•';
     }
   }
+  @media screen and (min-width: 768px) {
+    order: 4;
+  }
 `;
 
 export const UserDetailStyled = styled.div`
-  outline: 1px solid blue;
   display: flex;
   flex-direction: column;
   padding-block: 1.5rem;
@@ -102,5 +116,8 @@ export const UserDetailStyled = styled.div`
       text-decoration: none;
       color: inherit;
     }
+  }
+  @media screen and (min-width: 768px) {
+    order: 5;
   }
 `;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const RepositorieContentStyled = styled.main`
-  outline: 1px solid blue;
+  /* outline: 1px solid blue; */
   .cant-repos {
     display: none;
   }
