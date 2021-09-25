@@ -16,7 +16,7 @@ const Profile: React.FC = () => {
           <Image
             width={278}
             height={278}
-            src="https://avatars.githubusercontent.com/u/57077592?v=4"
+            src="https://avatars.githubusercontent.com/u/1150114?v=4"
             alt="avatar user {{name}}"
           />
         </Avatar>

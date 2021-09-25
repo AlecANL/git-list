@@ -11,6 +11,9 @@ type TListOptions = {
 
 const RepositorieSearch: React.FC = () => {
   const [isShowTypeModal, setShowTypeModal] = React.useState<boolean>(false);
+  const [isShowLanguageModal, setShowLanguageModal] =
+    React.useState<boolean>(false);
+  const [isShowSortModal, setShowSortModal] = React.useState<boolean>(false);
   const typeList: TListOptions[] = [
     {
       name: 'all',
@@ -34,13 +37,69 @@ const RepositorieSearch: React.FC = () => {
     },
   ];
 
-  function handleShowTypeModal() {
-    setShowTypeModal(!isShowTypeModal);
+  const languagesList: TListOptions[] = [
+    {
+      name: 'All',
+      value: 'all',
+    },
+    {
+      name: 'CSS',
+      value: 'css',
+    },
+    {
+      name: 'JavaScript',
+      value: 'javascript',
+    },
+    {
+      name: 'Java',
+      value: 'java',
+    },
+    {
+      name: 'HTML',
+      value: 'html',
+    },
+  ];
+
+  const sortList: TListOptions[] = [
+    {
+      name: 'last updated',
+      value: 'last_updated',
+    },
+    {
+      name: 'name',
+      value: 'name',
+    },
+    {
+      name: 'stars',
+      value: 'stars',
+    },
+  ];
+
+  function handleShowModal(modal: string) {
+    switch (modal) {
+      case 'type':
+        setShowTypeModal(!isShowTypeModal);
+        setShowSortModal(false);
+        setShowLanguageModal(false);
+        console.log('press type');
+        break;
+      case 'language':
+        setShowTypeModal(false);
+        setShowSortModal(false);
+        setShowLanguageModal(!isShowLanguageModal);
+        break;
+      case 'sort':
+        setShowTypeModal(false);
+        setShowLanguageModal(false);
+        setShowSortModal(!isShowSortModal);
+      default:
+        return;
+    }
   }
 
   return (
     <RepositorieSearchStyled>
-      <form>
+      <form className="form">
         <input
           className="input-field"
           type="search"
@@ -50,15 +109,24 @@ const RepositorieSearch: React.FC = () => {
         />
       </form>
       <div className="filter-buttons">
-        <button className="btn is-grey is-icon" onClick={handleShowTypeModal}>
+        <button
+          className="btn is-grey is-icon"
+          onClick={() => handleShowModal('type')}
+        >
           <span>type</span>
           <i className="icon-arrow-down"></i>
         </button>
-        <button className="btn is-grey is-icon">
+        <button
+          onClick={() => handleShowModal('language')}
+          className="btn is-grey is-icon"
+        >
           <span>language</span>
           <i className="icon-arrow-down"></i>
         </button>
-        <button className="btn is-grey is-icon">
+        <button
+          onClick={() => handleShowModal('sort')}
+          className="btn is-grey is-icon"
+        >
           <span>sort</span>
           <i className="icon-arrow-down"></i>
         </button>
@@ -68,6 +136,21 @@ const RepositorieSearch: React.FC = () => {
           list={typeList}
           show={isShowTypeModal}
           setShow={setShowTypeModal}
+        />
+      )}
+      {isShowLanguageModal && (
+        <FilterOptions
+          list={languagesList}
+          show={isShowLanguageModal}
+          setShow={setShowLanguageModal}
+        />
+      )}
+
+      {isShowSortModal && (
+        <FilterOptions
+          list={sortList}
+          show={isShowSortModal}
+          setShow={setShowSortModal}
         />
       )}
     </RepositorieSearchStyled>

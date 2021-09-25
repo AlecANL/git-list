@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const RepositorieSearchStyled = styled.main`
+export const RepositorieSearchStyled = styled.section`
   position: relative;
-  outline: 1px solid blue;
+  outline: 1px solid green;
   padding-block: 2.5rem;
   .input-field {
-    padding-block: 3px;
+    padding-block: 0.5rem;
     padding-inline: 1rem;
     inline-size: 100%;
     border: 1px solid var(--grey);
@@ -16,23 +16,23 @@ export const RepositorieSearchStyled = styled.main`
     display: flex;
     gap: 0.5rem;
     margin-block-start: 1rem;
+    overflow: auto;
     button {
-      padding-inline: 0.5rem;
-      padding-block: 0;
+      padding-inline: 1rem;
+      padding-block: 0.5rem;
       font: var(--body2-semi-bold);
-      font-size: 0.75rem;
     }
     outline: 1px solid green;
   }
   @media screen and (min-width: 768px) {
+    padding-block-start: 0;
+    display: flex;
+    gap: 1rem;
     .filter-buttons {
-      button {
-        padding-block: 5px;
-        font-size: 0.875rem;
-      }
+      margin-block-start: 0;
     }
-    .input-field {
-      padding-block: 0.5rem;
+    .form {
+      flex: 1;
     }
   }
 `;

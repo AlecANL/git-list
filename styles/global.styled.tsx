@@ -17,7 +17,7 @@ export const GlobalStyles = createGlobalStyle`
   --black-2: #171b21; 
   --headline1: 600 1.625rem/2rem var(--baeFont); 
   --button: 500 0.875rem/1.5rem var(--baeFont); 
-  --headline2-semi-bold: semi bold 1.25rem/1.5rem var(--baeFont); 
+  --headline2-semi-bold: 600 1.25rem/1.5rem var(--baeFont);  
   --headline2-ligth: 300 1.25rem/1.5rem var(--baeFont); 
   --body1-regular: 400 1rem/1.5rem var(--baeFont); 
   --body1-semi-bold: 700 1rem/1.5rem var(--baeFont); 
@@ -34,6 +34,7 @@ export const GlobalStyles = createGlobalStyle`
 body {
   /* color: var( --primary); */
   font: var(--body2-regular);
+  margin: 0;
 }
 
 h1,h2,h3,h4,h5,h6 {

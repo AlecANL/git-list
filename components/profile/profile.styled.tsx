@@ -6,6 +6,7 @@ export const ProfileStyled = styled.aside`
     display: flex;
     gap: 1rem;
     align-items: center;
+    outline: 1px solid green;
   }
   .profession {
     margin-block: 1.5rem 1rem;
@@ -21,6 +22,15 @@ export const ProfileStyled = styled.aside`
   .user-buttons .btn {
     flex: 1;
   }
+  @media screen and (min-width: 768px) {
+    .user {
+      flex-direction: column;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    /* padding-inline-start: 1.25rem; */
+    /* inline-size: 300px; */
+  }
 `;
 
 export const Avatar = styled.div`
@@ -29,6 +39,11 @@ export const Avatar = styled.div`
   block-size: 5rem;
   border-radius: 50%;
   overflow: hidden;
+  @media screen and (min-width: 768px) {
+    inline-size: 17.375rem;
+    block-size: 17.375rem;
+    align-self: flex-start;
+  }
 `;
 
 export const UserName = styled.div`
@@ -38,6 +53,9 @@ export const UserName = styled.div`
   }
   .nickname {
     font: var(--headline2-ligth);
+  }
+  @media screen and (min-width: 768px) {
+    align-self: flex-start;
   }
 `;
 
@@ -71,12 +89,12 @@ export const UserDetailStyled = styled.div`
   display: flex;
   flex-direction: column;
   padding-block: 1.5rem;
+  gap: 0.25rem;
   font: var(--body2-regular);
   .detail-item {
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    outline: 1px solid red;
 
     a {
       display: block;
