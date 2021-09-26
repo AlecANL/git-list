@@ -72,7 +72,7 @@ export const Stats = styled.div`
   .dot {
     inline-size: 1rem;
     block-size: 1rem;
-    background-color: red;
+    /* background-color: red; */
     border-radius: 50%;
   }
   .stat {

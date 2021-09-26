@@ -37,6 +37,7 @@ body {
   background-color: ${({ theme }) => theme.body};
   font: var(--body2-regular);
   margin: 0;
+  color: ${({ theme }) => theme.justWhite};
   transition: all .3s ease-in-out;
 }
 
@@ -92,7 +93,18 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
-
+.is-javascript {
+background-color: #f1e05a;
+}
+.is-html {
+  background-color: #e34c26;
+}
+.is-css {
+  background-color:#563d7c;
+}
+.is-typescript {
+  background-color: #2b7489;
+}
 `;
 
 export const darkTheme = {

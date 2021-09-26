@@ -2,8 +2,24 @@ import Head from 'next/head';
 import { Layout } from '../components/layout/layout';
 import { Profile } from '../components/profile/profile';
 import { RepositorieContent } from '../components/repositorie-content/repositorie-content';
+import React from 'react';
+import { RepositoryContext } from '../context/app-context';
+import { user, repositoryList } from '../utils/fakeData';
 
 export default function Home() {
+  const { dispatch, getUser, state, handleLoadingPage, getRepositories } =
+    React.useContext(RepositoryContext);
+  React.useEffect(() => {
+    setTimeout(() => {
+      dispatch(getUser(user));
+      dispatch(getRepositories(repositoryList));
+      dispatch(handleLoadingPage(false));
+    }, 1500);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (state.isLoading) return <h1>Loading...</h1>;
+
   return (
     <>
       <Head>

@@ -9,7 +9,6 @@ function MyApp({ Component, pageProps }) {
 
   const themeMode = theme === 'dark' ? darkTheme : ligthTheme;
   function handleThemeMode() {
-    // console.log(theme);
     toggleTheme();
   }
 

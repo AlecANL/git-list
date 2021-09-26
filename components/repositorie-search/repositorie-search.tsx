@@ -1,4 +1,5 @@
 import React from 'react';
+import { RepositoryContext } from '../../context/app-context';
 import {
   RepositorieSearchStyled,
   FilterOptionsStyled,
@@ -9,71 +10,83 @@ type TListOptions = {
   value: string;
 };
 
+const typeList: TListOptions[] = [
+  {
+    name: 'all',
+    value: 'all',
+  },
+  {
+    name: 'sources',
+    value: 'sources',
+  },
+  {
+    name: 'forks',
+    value: 'forks',
+  },
+  {
+    name: 'archived',
+    value: 'archived',
+  },
+  {
+    name: 'mirrors',
+    value: 'mirrors',
+  },
+];
+
+const languagesList: TListOptions[] = [
+  {
+    name: 'All',
+    value: 'all',
+  },
+  {
+    name: 'CSS',
+    value: 'css',
+  },
+  {
+    name: 'JavaScript',
+    value: 'javascript',
+  },
+  {
+    name: 'Java',
+    value: 'java',
+  },
+  {
+    name: 'HTML',
+    value: 'html',
+  },
+];
+
+const sortList: TListOptions[] = [
+  {
+    name: 'last updated',
+    value: 'last_updated',
+  },
+  {
+    name: 'name',
+    value: 'name',
+  },
+  {
+    name: 'stars',
+    value: 'stars',
+  },
+];
+
 const RepositorieSearch: React.FC = () => {
   const [isShowTypeModal, setShowTypeModal] = React.useState<boolean>(false);
   const [isShowLanguageModal, setShowLanguageModal] =
     React.useState<boolean>(false);
   const [isShowSortModal, setShowSortModal] = React.useState<boolean>(false);
-  const typeList: TListOptions[] = [
-    {
-      name: 'all',
-      value: 'all',
-    },
-    {
-      name: 'sources',
-      value: 'sources',
-    },
-    {
-      name: 'forks',
-      value: 'forks',
-    },
-    {
-      name: 'archived',
-      value: 'archived',
-    },
-    {
-      name: 'mirrors',
-      value: 'mirrors',
-    },
-  ];
+  const [search, setSearch] = React.useState<string>('');
+  const { dispatch, searchRepo } = React.useContext(RepositoryContext);
 
-  const languagesList: TListOptions[] = [
-    {
-      name: 'All',
-      value: 'all',
-    },
-    {
-      name: 'CSS',
-      value: 'css',
-    },
-    {
-      name: 'JavaScript',
-      value: 'javascript',
-    },
-    {
-      name: 'Java',
-      value: 'java',
-    },
-    {
-      name: 'HTML',
-      value: 'html',
-    },
-  ];
+  function handleSearchChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearch(event.currentTarget.value);
+    dispatch(searchRepo(search));
+  }
 
-  const sortList: TListOptions[] = [
-    {
-      name: 'last updated',
-      value: 'last_updated',
-    },
-    {
-      name: 'name',
-      value: 'name',
-    },
-    {
-      name: 'stars',
-      value: 'stars',
-    },
-  ];
+  function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
+    event.preventDefault();
+  }
 
   function handleShowModal(modal: string) {
     switch (modal) {
@@ -99,13 +112,15 @@ const RepositorieSearch: React.FC = () => {
 
   return (
     <RepositorieSearchStyled>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <input
           className="input-field"
           type="search"
           name="search"
           id="search"
           placeholder="Find a repository"
+          value={search}
+          onChange={handleSearchChange}
         />
       </form>
       <div className="filter-buttons">

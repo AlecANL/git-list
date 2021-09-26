@@ -1,12 +1,16 @@
 import React from 'react';
 import { CardTopics, Stats } from './repository-card.styled';
+import { IRepositories } from '../../types/repository.type';
 import {
   CardActions,
   CardDescription,
   RepositoryCardStyled,
 } from './repository-card.styled';
 
-const RepositoryCard: React.FC = () => {
+type RepoCardProps = {
+  repo: IRepositories;
+};
+const RepositoryCard: React.FC<RepoCardProps> = ({ repo }) => {
   return (
     <RepositoryCardStyled>
       <CardDescription>
@@ -17,15 +21,12 @@ const RepositoryCard: React.FC = () => {
               target="_blank"
               href="https://github.com/{{user}}/{{repo_name}}"
             >
-              Leonidas Esteban
+              {repo.name}
             </a>
           </h3>
           <span>public</span>
         </div>
-        <p className="repo-detail">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi
-          pariatur mag
-        </p>
+        <p className="repo-detail">{repo?.description}</p>
         <CardTopics>
           <span>javascript</span>
           <span>css</span>
@@ -33,10 +34,12 @@ const RepositoryCard: React.FC = () => {
           <span>HTML</span>
         </CardTopics>
         <Stats>
-          <div className="stat">
-            <div className="dot"></div>
-            <span className="language-name">javascript</span>
-          </div>
+          {repo.language && (
+            <div className="stat">
+              <div className={`dot is-${repo.language.toLowerCase()}`}></div>
+              <span className="language-name">{repo.language}</span>
+            </div>
+          )}
           <div className="stat">
             <i className="icon-star"></i>
             <span>4</span>

@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+<img width="120px"  src="https://raw.githubusercontent.com/no-te-rindas/logo/main/Logo/LeonidasEsteban-destello-envolvente-cuadrada.png" />
+</div>
 
-## Getting Started
+# GitList
 
-First, run the development server:
+Maneja los repositorios de tus proyectos como todo un profesional utilizando GitList, la plataforma de desarrollo más grande y avanzada del mundo.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Requerimentos
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Estilo libre. Lleva el diseño al código utilizando tu framework favorito, o con HTML y CSS, no hay ninguna limitación.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Implementa todas las resoluciones del diseño
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Añade la funcionalidad de buscador
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Añade la funcionalidad de filtros
 
-## Learn More
+- Sube tu código a GitHub
 
-To learn more about Next.js, take a look at the following resources:
+- Publica tu resultado con github pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Mándalo a revisión desde tu [perfil](https://leonidasesteban.com/estudiante)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Desktop
 
-## Deploy on Vercel
+<img width="400px"  src="https://raw.githubusercontent.com/uxcristopher/imagenes/main/Readmes/GitList/Desktop.png" />
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Mobile
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<img width="200px"  src="https://raw.githubusercontent.com/uxcristopher/imagenes/main/Readmes/GitList/Mobile.jpg" />
+
+## Disclaimer
+
+Todas son propuestas, el propósito de **/Proyectos** es brindarte el diseño, el límite de la creación lo dictan tus ganas de hacerlo realidad y tu skills del momento a la hora de codear.
+
+## Revisión
+
+Recuerda mandar tu proyecto a revisión, si aún no conoces como funciona el proceso de revisión lee este post: [Como usar proyectos en 3 pasos](https://leonidasesteban.com/blog/como-usar-proyectos-en-3-pasos)
+
+## Créditos
+
+Encuentra más proyectos asombrosos en [/Proyectos](https://leonidasesteban.com/proyectos)
+
+Diseñado con ♥️ en leonidasesteban.com
