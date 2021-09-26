@@ -11,6 +11,7 @@ export const ProfileStyled = styled.aside`
   .profession {
     margin-block: 1.5rem 1rem;
     font: var(--body1-regular);
+    color: ${({ theme }) => theme.grey2};
   }
   .is-pink {
     color: var(--pink);
@@ -61,9 +62,11 @@ export const UserName = styled.div`
   /* outline: 1px solid blue; */
   .name {
     font: var(--headline1);
+    color: ${({ theme }) => theme.justWhite};
   }
   .nickname {
     font: var(--headline2-ligth);
+    color: ${({ theme }) => theme.grey2};
   }
   @media screen and (min-width: 768px) {
     align-self: flex-start;
@@ -78,10 +81,15 @@ export const FollowsStyled = styled.div`
   row-gap: 4px;
   small {
     font: var(--body2-regular);
+    color: ${({ theme }) => theme.grey};
+  }
+  i {
+    color: ${({ theme }) => theme.grey2};
   }
 
   span {
     font: var(--body2-semi-bold);
+    color: ${({ theme }) => theme.grey2};
   }
   .followers-item {
     /* outline: 1px solid red; */
@@ -92,6 +100,7 @@ export const FollowsStyled = styled.div`
   .followers-item:not(:first-child) {
     &::before {
       content: '•';
+      color: ${({ theme }) => theme.grey2};
     }
   }
   @media screen and (min-width: 768px) {
@@ -109,12 +118,17 @@ export const UserDetailStyled = styled.div`
     display: flex;
     gap: 0.5rem;
     align-items: center;
-
+    i {
+      color: ${({ theme }) => theme.grey};
+    }
+    span {
+      color: ${({ theme }) => theme.grey2};
+    }
     a {
       display: block;
       font: var(--body2-regular);
       text-decoration: none;
-      color: inherit;
+      color: ${({ theme }) => theme.grey2};
     }
   }
   @media screen and (min-width: 768px) {

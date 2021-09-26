@@ -4,6 +4,7 @@ export const RepositorieContentStyled = styled.main`
   /* outline: 1px solid blue; */
   .cant-repos {
     display: none;
+    color: ${({ theme }) => theme.justWhite};
   }
   @media screen and (min-width: 768px) {
     .cant-repos {

@@ -35,7 +35,7 @@ const RepositoryCard: React.FC = () => {
         <Stats>
           <div className="stat">
             <div className="dot"></div>
-            <span>javascript</span>
+            <span className="language-name">javascript</span>
           </div>
           <div className="stat">
             <i className="icon-star"></i>

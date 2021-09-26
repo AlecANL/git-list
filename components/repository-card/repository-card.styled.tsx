@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const RepositoryCardStyled = styled.article`
-  /* outline: 1px solid #1c2dc3; */
-  /* padding-block-start: 2rem; */
   padding-block: 2rem;
-  border-block-end: 1px solid var(--grey-2);
+  /* border-block-end: 1px solid var(--grey-2); */
+  border-block-end: 1px solid ${({ theme }) => theme.borderBottom};
+
   @media screen and (min-width: 768px) {
     display: grid;
     place-content: space-between;
@@ -17,7 +17,6 @@ export const RepositoryCardStyled = styled.article`
 `;
 
 export const CardDescription = styled.div`
-  /* outline: 1px solid pink; */
   .name {
     display: flex;
     align-items: center;
@@ -34,28 +33,28 @@ export const CardDescription = styled.div`
   }
   .repo-detail {
     margin-block: 1rem;
+    color: ${({ theme }) => theme.grey};
   }
 `;
 
 export const CardActions = styled.div`
-  /* outline: 1px solid blue; */
   justify-self: flex-end;
 `;
 
 export const CardTopics = styled.div`
-  /* outline: 1px solid orange; */
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
   span {
     font: var(--caption-medium);
     display: block;
-    background-color: var(--bg-topic);
-    color: var(--primary);
+    background-color: ${({ theme }) => theme.topic};
+    color: ${({ theme }) => theme.colorTopic};
     padding-inline: 0.75rem;
     padding-block: 0.3125rem;
     border-radius: 2.5rem;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
   }
   span:hover {
     background-color: #0969da;
@@ -81,6 +80,10 @@ export const Stats = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: ${({ theme }) => theme.grey2};
     font: var(--caption-regular);
+  }
+  .language-name {
+    color: ${({ theme }) => theme.grey};
   }
 `;

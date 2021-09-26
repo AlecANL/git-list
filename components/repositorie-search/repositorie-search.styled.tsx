@@ -3,14 +3,16 @@ import styled from 'styled-components';
 export const RepositorieSearchStyled = styled.section`
   position: relative;
   /* outline: 1px solid green; */
-  border-block-end: 1px solid var(--grey-2);
+  border-block-end: 1px solid ${({ theme }) => theme.borderBottom};
   padding-block: 2.5rem;
   .input-field {
     padding-block: 0.5rem;
     padding-inline: 1rem;
     inline-size: 100%;
-    border: 1px solid var(--grey);
+    background-color: ${({ theme }) => theme.body};
+    border: 1px solid ${({ theme }) => theme.borderButton};
     border-radius: 0.5rem;
+    color: ${({ theme }) => theme.grey};
     font: var(--body2-regular);
   }
   .filter-buttons {
@@ -44,7 +46,9 @@ export const FilterOptionsStyled = styled.div`
   margin-block-start: 1rem;
   border: 1px solid var(--grey-2);
   border-radius: 0.5rem;
-  background-color: #fff;
+  /* background-color: #fff; */
+  color: ${({ theme }) => theme.grey2};
+  background-color: ${({ theme }) => theme.menuModal};
   .icon-close {
     cursor: pointer;
   }
