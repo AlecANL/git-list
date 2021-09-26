@@ -1,7 +1,21 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyles = createGlobalStyle`
+declare module 'styled-components' {
+  export interface DefaultTheme {
+    body: string;
+    grey: string;
+    grey2: string;
+    justWhite: string;
+    button: string;
+    borderButton: string;
+    topic: string;
+    colorTopic: string;
+    borderBottom: string;
+    menuModal: string;
+  }
+}
 
+export const GlobalStyles = createGlobalStyle`
 :root {
   --baeFont:'Inter', sans-serif;
   --bg-topic: #ddf4ff;
@@ -28,10 +42,6 @@ export const GlobalStyles = createGlobalStyle`
   --caption-medium: 500 0.75rem/1.125rem var(--baeFont); 
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
   /* color: var( --primary); */
   background-color: ${({ theme }) => theme.body};
@@ -40,6 +50,12 @@ body {
   color: ${({ theme }) => theme.justWhite};
   transition: all .3s ease-in-out;
 }
+
+
+* {
+  box-sizing: border-box;
+}
+
 
 h1,h2,h3,h4,h5,h6 {
   margin: 0;
@@ -69,6 +85,7 @@ h1,h2,h3,h4,h5,h6 {
   border-color: ${({ theme }) => theme.borderButton};
   color: ${({ theme }) => theme.justWhite};
 }
+
 .btn-float {
   position: fixed;
   inset-inline-end: 3.125rem;
@@ -105,6 +122,7 @@ background-color: #f1e05a;
 .is-typescript {
   background-color: #2b7489;
 }
+
 `;
 
 export const darkTheme = {
