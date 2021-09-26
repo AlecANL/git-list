@@ -29,3 +29,15 @@ export function handleLoadingPage(isLoading: boolean): TRepositoryAction {
     payload: isLoading,
   };
 }
+
+type TSearchByTag = {
+  tagSearched: string;
+  repos: IRepositories[];
+};
+
+export function filterByTag(search: TSearchByTag): TRepositoryAction {
+  return {
+    type: actionsTypes.SEARCH_BY_TAG,
+    payload: search,
+  };
+}

@@ -32,7 +32,7 @@ const typeList: TListOptions[] = [
 const languagesList: TListOptions[] = [
   {
     name: 'All',
-    value: 'all',
+    value: '',
   },
   {
     name: 'CSS',
@@ -43,8 +43,8 @@ const languagesList: TListOptions[] = [
     value: 'javascript',
   },
   {
-    name: 'Java',
-    value: 'java',
+    name: 'typescript',
+    value: 'typescript',
   },
   {
     name: 'HTML',
@@ -82,16 +82,15 @@ const RepositorieSearch: React.FC = () => {
 
   function handleSearchChange(event: React.ChangeEvent<HTMLInputElement>) {
     setSearch(event.currentTarget.value);
+    // if (search.length <= 1) {
+    //   dispatch(searchRepo(''));
+    // }
   }
 
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
     dispatch(searchRepo(search.toLowerCase()));
   }
-
-  React.useEffect(() => {
-    dispatch(searchRepo(search.toLowerCase()));
-  }, [search, dispatch]);
 
   return (
     <RepositorieSearchStyled>
@@ -131,6 +130,7 @@ const RepositorieSearch: React.FC = () => {
       </div>
       {isShowOptions && (
         <FilterOptions
+          name="type"
           list={typeList}
           show={isShowOptions}
           setShow={setShowOptions}
@@ -138,6 +138,7 @@ const RepositorieSearch: React.FC = () => {
       )}
       {isShowLanguages && (
         <FilterOptions
+          name="language"
           list={languagesList}
           show={isShowLanguages}
           setShow={setShowLanguages}
@@ -146,6 +147,7 @@ const RepositorieSearch: React.FC = () => {
 
       {isShowSort && (
         <FilterOptions
+          name="option"
           list={sortList}
           show={isShowSort}
           setShow={setShowSort}

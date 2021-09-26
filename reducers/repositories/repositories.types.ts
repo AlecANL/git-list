@@ -6,6 +6,8 @@ export const repositoriesTypes = {
   GET_REPOSITORY_LIST: '[REPO]: GET_REPOSITORY_LIST',
   SEARCH_BY_NAME: '[REPO]: SEARCH_BY_NAME',
   LOADING_PAGE: '[UI]: LOADING_PAGE',
+  SEARCH_BY_TAG: '[REPO]: SEARCH_BY_TAG',
+  SET_SEARCH: '[REPO]: SET_SEARCH',
 };
 
 export type TRepositoryState = {
@@ -17,6 +19,7 @@ export type TRepositoryState = {
   searchByTag: string | null;
   reposByName: IRepositories[] | [];
   reposByTag: IRepositories[] | [];
+  searchName: string | null;
 };
 
 export type TRepositoryAction = {

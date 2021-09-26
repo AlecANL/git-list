@@ -40,4 +40,10 @@ export const FilterOptionsStyled = styled.div`
     inset-inline-end: 3.125rem;
     margin-block-start: 3.75rem;
   }
+  .icon {
+    display: none;
+  }
+  .icon.is-active {
+    display: block;
+  }
 `;

@@ -14,15 +14,15 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <ThemeProvider theme={themeMode}>
-        <AppContext>
+      <AppContext>
+        <ThemeProvider theme={themeMode}>
           <GlobalStyles />
           <button onClick={handleThemeMode} className="btn-float">
             {theme === 'dark' ? '🌔' : '☀️'}
           </button>
           <Component {...pageProps} />
-        </AppContext>
-      </ThemeProvider>
+        </ThemeProvider>
+      </AppContext>
     </>
   );
 }

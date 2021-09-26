@@ -8,9 +8,10 @@ const initialValue: TRepositoryState = {
   isError: false,
   isLoading: true,
   error: null,
-  searchByTag: null,
+  searchByTag: '',
   reposByName: [],
   reposByTag: [],
+  searchName: null,
 };
 
 export type TContextType = {
@@ -31,6 +32,7 @@ const AppContext = ({ children }) => {
     search,
     setSearch,
   };
+
   return (
     <RepositoryContext.Provider value={value}>
       {children}

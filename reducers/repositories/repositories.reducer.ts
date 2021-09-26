@@ -24,22 +24,41 @@ export function RepositoriesReducer(
       } else {
         listRepositories = state.repositories;
       }
+
       const filterByName = listRepositories.filter(repo =>
         repo.name
           .toLowerCase()
           .includes(action.payload.length < 1 ? '' : action.payload)
       );
-      console.log(`this is de value ${action.payload.length}`);
-
+      if (action.payload === '') {
+        return {
+          ...state,
+          reposByName: [],
+        };
+      }
       return {
         ...state,
         reposByName: [...filterByName],
+        searchByTag: null,
       };
     }
+    case actionsTypes.SET_SEARCH: {
+      return {
+        ...state,
+      };
+    }
+
     case actionsTypes.LOADING_PAGE:
       return {
         ...state,
         isLoading: action.payload,
+      };
+    case actionsTypes.SEARCH_BY_TAG:
+      console.log(action.payload);
+      return {
+        ...state,
+        searchByTag: action.payload.tagSearched,
+        // reposByTag: [...action.payload.repos],
       };
     default:
       return {

@@ -10,7 +10,6 @@ const RepositorieContent: React.FC = () => {
     <RepositorieContentStyled>
       <h2 className="cant-repos">Repositories (185)</h2>
       <RepositorieSearch />
-      <p>{search}</p>
       <RepositoryList />
     </RepositorieContentStyled>
   );
