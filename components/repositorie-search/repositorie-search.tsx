@@ -1,14 +1,10 @@
 import React from 'react';
-import { RepositoryContext } from '../../context/app-context';
-import {
-  RepositorieSearchStyled,
-  FilterOptionsStyled,
-} from './repositorie-search.styled';
-
-type TListOptions = {
-  name: string;
-  value: string;
-};
+import { RepositoryContext, TContextType } from '../../context/app-context';
+import { RepositorieSearchStyled } from './repositorie-search.styled';
+import { TListOptions } from '../../types/list-options.types';
+import { FilterOptions } from '../filter-options/filter-options';
+import { useOptionModal } from '../../hooks/useOptionModal';
+import { searchRepo } from '../../reducers/repositories/repositories.actions';
 
 const typeList: TListOptions[] = [
   {
@@ -72,43 +68,30 @@ const sortList: TListOptions[] = [
 ];
 
 const RepositorieSearch: React.FC = () => {
-  const [isShowTypeModal, setShowTypeModal] = React.useState<boolean>(false);
-  const [isShowLanguageModal, setShowLanguageModal] =
-    React.useState<boolean>(false);
-  const [isShowSortModal, setShowSortModal] = React.useState<boolean>(false);
-  const [search, setSearch] = React.useState<string>('');
-  const { dispatch, searchRepo } = React.useContext(RepositoryContext);
+  const { dispatch, state: s } = React.useContext(
+    RepositoryContext
+  ) as TContextType;
+  const { search, setSearch } = React.useContext(
+    RepositoryContext
+  ) as TContextType;
+  const state = useOptionModal();
+  const { handleShowModal } = state;
+  const { isShowLanguages, setShowLanguages } = state;
+  const { isShowOptions, setShowOptions } = state;
+  const { isShowSort, setShowSort } = state;
 
   function handleSearchChange(event: React.ChangeEvent<HTMLInputElement>) {
     setSearch(event.currentTarget.value);
-    dispatch(searchRepo(search));
   }
 
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
+    dispatch(searchRepo(search.toLowerCase()));
   }
 
-  function handleShowModal(modal: string) {
-    switch (modal) {
-      case 'type':
-        setShowTypeModal(!isShowTypeModal);
-        setShowSortModal(false);
-        setShowLanguageModal(false);
-        console.log('press type');
-        break;
-      case 'language':
-        setShowTypeModal(false);
-        setShowSortModal(false);
-        setShowLanguageModal(!isShowLanguageModal);
-        break;
-      case 'sort':
-        setShowTypeModal(false);
-        setShowLanguageModal(false);
-        setShowSortModal(!isShowSortModal);
-      default:
-        return;
-    }
-  }
+  React.useEffect(() => {
+    dispatch(searchRepo(search.toLowerCase()));
+  }, [search, dispatch]);
 
   return (
     <RepositorieSearchStyled>
@@ -146,66 +129,29 @@ const RepositorieSearch: React.FC = () => {
           <i className="icon-arrow-down"></i>
         </button>
       </div>
-      {isShowTypeModal && (
+      {isShowOptions && (
         <FilterOptions
           list={typeList}
-          show={isShowTypeModal}
-          setShow={setShowTypeModal}
+          show={isShowOptions}
+          setShow={setShowOptions}
         />
       )}
-      {isShowLanguageModal && (
+      {isShowLanguages && (
         <FilterOptions
           list={languagesList}
-          show={isShowLanguageModal}
-          setShow={setShowLanguageModal}
+          show={isShowLanguages}
+          setShow={setShowLanguages}
         />
       )}
 
-      {isShowSortModal && (
+      {isShowSort && (
         <FilterOptions
           list={sortList}
-          show={isShowSortModal}
-          setShow={setShowSortModal}
+          show={isShowSort}
+          setShow={setShowSort}
         />
       )}
     </RepositorieSearchStyled>
-  );
-};
-
-type TFilterOptionsProps = {
-  list: TListOptions[];
-  show: boolean;
-  setShow: Function;
-};
-
-const FilterOptions: React.FC<TFilterOptionsProps> = ({
-  list,
-  show,
-  setShow,
-}) => {
-  function handleFilterType(type: string) {
-    console.log(type);
-  }
-
-  function handleCloseModal() {
-    setShow(!show);
-  }
-
-  return (
-    <FilterOptionsStyled>
-      <div className="heading">
-        <span>select type</span>
-        <i onClick={handleCloseModal} className="icon-close"></i>
-      </div>
-      <ul className="list">
-        {list.map((item, idx) => (
-          <li onClick={() => handleFilterType(item.value)} key={idx}>
-            {idx === 0 && <i className="icon-check"></i>}
-            <span>{item.name}</span>
-          </li>
-        ))}
-      </ul>
-    </FilterOptionsStyled>
   );
 };
 
