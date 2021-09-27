@@ -32,7 +32,6 @@ export function handleLoadingPage(isLoading: boolean): TRepositoryAction {
 
 type TSearchByTag = {
   tagSearched: string;
-  repos: IRepositories[];
 };
 
 export function filterByTag(search: TSearchByTag): TRepositoryAction {

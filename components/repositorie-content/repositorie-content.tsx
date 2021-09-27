@@ -8,7 +8,7 @@ const RepositorieContent: React.FC = () => {
   const { state, search } = React.useContext(RepositoryContext) as TContextType;
   return (
     <RepositorieContentStyled>
-      <h2 className="cant-repos">Repositories (185)</h2>
+      <h2 className="cant-repos">Repositories ({state.user.public_repos})</h2>
       <RepositorieSearch />
       <RepositoryList />
     </RepositorieContentStyled>

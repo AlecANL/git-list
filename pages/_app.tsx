@@ -17,7 +17,11 @@ function MyApp({ Component, pageProps }) {
       <AppContext>
         <ThemeProvider theme={themeMode}>
           <GlobalStyles />
-          <button onClick={handleThemeMode} className="btn-float">
+          <button
+            onClick={handleThemeMode}
+            className="btn-float"
+            title="switch dark mode"
+          >
             {theme === 'dark' ? '🌔' : '☀️'}
           </button>
           <Component {...pageProps} />

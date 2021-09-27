@@ -22,14 +22,21 @@ export const CardDescription = styled.div`
     align-items: center;
     gap: 1rem;
   }
+  .name:hover a:hover {
+    text-decoration: underline;
+  }
   .name a {
     text-decoration: none;
     color: var(--primary);
     font: var(--headline2-semi-bold);
   }
-  .name span {
+  .name .tag {
     font: var(--caption-regular);
     text-transform: capitalize;
+    color: ${({ theme }) => theme.grey};
+    border: 1px solid ${({ theme }) => theme.grey};
+    padding-inline: 0.3125rem;
+    border-radius: 3.125rem;
   }
   .repo-detail {
     margin-block: 1rem;
@@ -39,12 +46,27 @@ export const CardDescription = styled.div`
 
 export const CardActions = styled.div`
   justify-self: flex-end;
+  button {
+    font: var(--body2-semi-bold);
+  }
+  button i {
+    color: ${({ theme }) => theme.grey};
+  }
+
+  @media screen and (min-width: 768px) {
+    button {
+      padding-block: 0.5rem;
+    }
+  }
 `;
 
 export const CardTopics = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  a {
+    text-decoration: none;
+  }
   span {
     font: var(--caption-medium);
     display: block;
@@ -69,6 +91,9 @@ export const Stats = styled.div`
   gap: 1rem;
   padding-block-start: 1rem;
   padding-block-end: 1.5rem;
+  @media screen and (min-width: 768px) {
+    padding-block-end: 0;
+  }
   .dot {
     inline-size: 1rem;
     block-size: 1rem;
@@ -82,6 +107,17 @@ export const Stats = styled.div`
     gap: 0.5rem;
     color: ${({ theme }) => theme.grey2};
     font: var(--caption-regular);
+  }
+  .stat a {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    text-decoration: none;
+    color: ${({ theme }) => theme.grey2};
+  }
+  .stat:hover a {
+    color: ${({ theme }) => theme.colorTopic};
+    text-decoration: underline;
   }
   .language-name {
     color: ${({ theme }) => theme.grey};

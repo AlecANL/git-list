@@ -11,6 +11,13 @@ type RepoCardProps = {
   repo: IRepositories;
 };
 const RepositoryCard: React.FC<RepoCardProps> = ({ repo }) => {
+  const getDateRepoUpdated = new Date(repo.updated_at);
+  const repoUpdated = getDateRepoUpdated.toLocaleDateString('en-Us', {
+    weekday: 'long',
+    month: 'short',
+    year: 'numeric',
+  });
+
   return (
     <RepositoryCardStyled>
       <CardDescription>
@@ -19,19 +26,22 @@ const RepositoryCard: React.FC<RepoCardProps> = ({ repo }) => {
             <a
               rel="noreferrer"
               target="_blank"
-              href="https://github.com/{{user}}/{{repo_name}}"
+              href={`https://github.com/${repo.owner.login}/${repo.name}`}
             >
               {repo.name}
             </a>
           </h3>
-          <span>public</span>
+          <span className="tag">{repo.private ? 'private' : 'public'}</span>
         </div>
         <p className="repo-detail">{repo?.description}</p>
         <CardTopics>
-          <span>javascript</span>
-          <span>css</span>
-          <span>styled-components</span>
-          <span>HTML</span>
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://github.com/topics/{{nametopic}}"
+          >
+            <span>javascript</span>
+          </a>
         </CardTopics>
         <Stats>
           {repo.language && (
@@ -40,16 +50,34 @@ const RepositoryCard: React.FC<RepoCardProps> = ({ repo }) => {
               <span className="language-name">{repo.language}</span>
             </div>
           )}
+          {repo.stargazers_count > 0 && (
+            <div className="stat">
+              <a
+                rel="noreferrer"
+                target="_blank"
+                href={`https://github.com/${repo.owner.login}/${repo.name}/stargazers`}
+              >
+                <i className="icon-star"></i>
+                <span>{repo.stargazers_count}</span>
+              </a>
+            </div>
+          )}
+          {repo.forks_count > 0 && (
+            <div className="stat">
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={`
+                https://github.com/${repo.owner.login}/${repo.name}/network/members
+              `}
+              >
+                <i className="icon-branch"></i>
+                <span>{repo.forks_count}</span>
+              </a>
+            </div>
+          )}
           <div className="stat">
-            <i className="icon-star"></i>
-            <span>4</span>
-          </div>
-          <div className="stat">
-            <i className="icon-branch"></i>
-            <span>4</span>
-          </div>
-          <div className="stat">
-            <span>updated 21 hours ago</span>
+            <span>updated on {repoUpdated}</span>
           </div>
         </Stats>
       </CardDescription>

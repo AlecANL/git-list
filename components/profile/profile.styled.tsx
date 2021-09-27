@@ -91,13 +91,24 @@ export const FollowsStyled = styled.div`
     font: var(--body2-semi-bold);
     color: ${({ theme }) => theme.grey2};
   }
-  .followers-item {
-    /* outline: 1px solid red; */
+
+  .followers-item a {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    text-decoration: none;
   }
-  .followers-item:not(:first-child) {
+  .followers-item:hover span,
+  .followers-item:hover i,
+  .followers-item:hover a,
+  .followers-item:hover small {
+    color: ${({ theme }) => theme.colorTopic};
+  }
+  .followers-item:hover {
+    box-shadow: 0px -113px 0px -111px ${({ theme }) => theme.colorTopic} inset;
+  }
+
+  .followers-item:not(:first-child) a {
     &::before {
       content: '•';
       color: ${({ theme }) => theme.grey2};
@@ -129,6 +140,10 @@ export const UserDetailStyled = styled.div`
       font: var(--body2-regular);
       text-decoration: none;
       color: ${({ theme }) => theme.grey2};
+    }
+    a:hover {
+      text-decoration: underline;
+      color: ${({ theme }) => theme.colorTopic};
     }
   }
   @media screen and (min-width: 768px) {

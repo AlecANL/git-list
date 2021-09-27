@@ -10,10 +10,14 @@ export const RepositorieSearchStyled = styled.section`
     padding-inline: 1rem;
     inline-size: 100%;
     background-color: ${({ theme }) => theme.body};
-    border: 1px solid ${({ theme }) => theme.borderButton};
+    border: 1px solid ${({ theme }) => theme.borderField};
     border-radius: 0.5rem;
     color: ${({ theme }) => theme.grey};
     font: var(--body2-regular);
+    outline: none;
+    &:focus {
+      border: 1px solid ${({ theme }) => theme.colorTopic};
+    }
   }
   .filter-buttons {
     display: flex;
