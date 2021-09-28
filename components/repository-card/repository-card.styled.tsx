@@ -14,6 +14,9 @@ export const RepositoryCardStyled = styled.article`
   @media screen and (min-width: 1024px) {
     grid-template-columns: 390px 277px;
   }
+  @media screen and (min-width: 1366px) {
+    grid-template-columns: 400px 277px;
+  }
 `;
 
 export const CardDescription = styled.div`

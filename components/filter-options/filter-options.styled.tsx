@@ -6,6 +6,13 @@ export const FilterOptionsStyled = styled.div`
   margin-block-start: 1rem;
   border: 1px solid var(--grey-2);
   border-radius: 0.5rem;
+  transform: scale(0);
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  &.is-active {
+    transform: scale(1);
+    visibility: visible;
+  }
   /* background-color: #fff; */
   color: ${({ theme }) => theme.grey2};
   background-color: ${({ theme }) => theme.menuModal};
@@ -30,7 +37,21 @@ export const FilterOptionsStyled = styled.div`
     display: flex;
     align-items: center;
     cursor: pointer;
+    transition: all 0.3s ease-in;
     /* gap: 1rem; */
+  }
+  li:hover {
+    background-color: ${({ theme }) => theme.hoverMenuOption};
+    /* background-color: ; */
+  }
+  li.is-active {
+    color: ${({ theme }) => theme.justWhite};
+  }
+  li.is-active .option-icon {
+    display: block;
+  }
+  .option-icon {
+    display: none;
   }
   li span {
     margin-inline-start: 1rem;

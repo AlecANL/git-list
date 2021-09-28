@@ -143,4 +143,4 @@ const UserDetail: React.FC<TUserDetailProps> = ({
     </UserDetailStyled>
   );
 };
-export { Profile };
+export default React.memo(Profile);

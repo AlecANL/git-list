@@ -2,9 +2,9 @@ import React from 'react';
 import Head from 'next/head';
 import { BiSearchAlt } from 'react-icons/bi';
 import { RepositoryContext, TContextType } from '@context/app-context';
-import { Layout } from '@components/layout/layout';
-import { Profile } from '@components/profile/profile';
-import { RepositorieContent } from '@components/repositorie-content/repositorie-content';
+import Layout from '@components/layout/layout';
+import Profile from '@components/profile/profile';
+import RepositorieContent from '@components/repositorie-content/repositorie-content';
 import { Modal } from '@components/modal/modal';
 import { Loading } from '@components/loading/loading';
 import { getData } from 'services/getRepositories';
@@ -38,8 +38,6 @@ export default function Home() {
           dispatch(getRepositories(repos.data));
           uiDispatch(handleLoadingPage(false));
           uiDispatch(handleErrorPage(false));
-
-          console.log('get data');
         }
       } catch (err) {
         console.log(err);

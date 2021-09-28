@@ -54,31 +54,31 @@ const RepositorieSearch: React.FC = () => {
           <i className="icon-arrow-down"></i>
         </button>
       </div>
-      {isShowOptions && (
-        <FilterOptions
-          name="type"
-          list={typeList}
-          show={isShowOptions}
-          setShow={setShowOptions}
-        />
-      )}
-      {isShowLanguages && (
-        <FilterOptions
-          name="language"
-          list={languagesList}
-          show={isShowLanguages}
-          setShow={setShowLanguages}
-        />
-      )}
+      <FilterOptions
+        name="name"
+        list={typeList}
+        show={isShowOptions}
+        setShow={setShowOptions}
+      />
+      {/* {isShowOptions && (
+      )} */}
+      {/* {isShowLanguages && (
+        )} */}
+      <FilterOptions
+        name="language"
+        list={languagesList}
+        show={isShowLanguages}
+        setShow={setShowLanguages}
+      />
 
-      {isShowSort && (
-        <FilterOptions
-          name="option"
-          list={sortList}
-          show={isShowSort}
-          setShow={setShowSort}
-        />
-      )}
+      <FilterOptions
+        name="option"
+        list={sortList}
+        show={isShowSort}
+        setShow={setShowSort}
+      />
+      {/* {isShowSort && (
+      )} */}
     </RepositorieSearchStyled>
   );
 };

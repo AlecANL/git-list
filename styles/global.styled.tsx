@@ -17,6 +17,7 @@ declare module 'styled-components' {
     scrollBar: string;
     scroll: string;
     modalContent: string;
+    hoverMenuOption: string;
   }
 }
 
@@ -165,6 +166,7 @@ export const darkTheme = {
   scrollBar: '#424242',
   scroll: '#686868',
   modalContent: 'rgba(30, 29, 38, 1)',
+  hoverMenuOption: 'rgba(255, 255, 255, 0.096)',
 };
 
 export const ligthTheme = {
@@ -183,5 +185,7 @@ export const ligthTheme = {
   scrollBar: '#cdd9e5',
   scroll: '#c1c1c1',
   modalContent: '#fff',
+  hoverMenuOption: 'rgba(109, 109, 109, 0.096)',
+
   // modalContent: 'rgba(243, 240, 245, 1)',
 };

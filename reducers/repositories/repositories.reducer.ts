@@ -44,11 +44,9 @@ export function RepositoriesReducer(
     }
 
     case actionsTypes.SEARCH_BY_TAG:
-      console.log(action.payload);
       return {
         ...state,
         searchByTag: action.payload.tagSearched,
-        // reposByTag: [...action.payload.repos],
       };
 
     default:

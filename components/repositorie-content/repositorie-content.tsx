@@ -15,4 +15,4 @@ const RepositorieContent: React.FC = () => {
   );
 };
 
-export { RepositorieContent };
+export default React.memo(RepositorieContent);

@@ -4,8 +4,6 @@ import { UITypes as actionTypes } from './ui.types';
 export function UIReducer(state: TUIState, action: TAction): TUIState {
   switch (action.type) {
     case actionTypes.IS_LOADING:
-      console.log('hello from ui');
-      console.log(state);
       return {
         ...state,
         isLoading: action.payload,
