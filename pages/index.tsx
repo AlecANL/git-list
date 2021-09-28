@@ -60,7 +60,10 @@ export default function Home() {
         <meta property="og:title" content="Your Repositories | Github" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://git-list.vercel.app/" />
-        <meta property="og:image" content="" />
+        <meta
+          property="og:image"
+          content="https://github.com/AlecANL/git-list/raw/main/public/images/design1.png"
+        />
         <meta
           property="og:description"
           content="Find your repositories and the another github user..."

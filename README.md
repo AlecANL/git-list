@@ -41,8 +41,8 @@ Estilo libre. Lleva el diseño al código utilizando tu framework favorito, o co
 
 ### Links
 
-- Solution URL: [repo](https://github.com/AlecANL/huddle-landing-page)
-- Live Site URL: [live demo](https://alecanl.github.io/huddle-landing-page/)
+- Solution URL: [repo](https://git-list.vercel.app/)
+- Live Site URL: [live demo](https://github.com/AlecANL/git-list)
 
 ## Disclaimer
 
