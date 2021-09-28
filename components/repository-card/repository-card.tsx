@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardTopics, Stats } from './repository-card.styled';
 import { IRepositories } from '../../types/repository.type';
+import axios from 'axios';
 import {
   CardActions,
   CardDescription,
@@ -17,6 +18,18 @@ const RepositoryCard: React.FC<RepoCardProps> = ({ repo }) => {
     month: 'short',
     year: 'numeric',
   });
+
+  function convertLanguage() {
+    const language = repo.language;
+    if (language.endsWith('#')) {
+      return language.replace('#', 'sharp').toLocaleLowerCase();
+    }
+    if (language.endsWith('++')) {
+      return language.replace('++', 'pp').toLocaleLowerCase();
+    }
+
+    return language.toLocaleLowerCase();
+  }
 
   return (
     <RepositoryCardStyled>
@@ -38,20 +51,34 @@ const RepositoryCard: React.FC<RepoCardProps> = ({ repo }) => {
           <a
             rel="noreferrer"
             target="_blank"
-            href="https://github.com/topics/{{nametopic}}"
+            href="https://github.com/topics/javascript"
           >
             <span>javascript</span>
+          </a>
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://github.com/topics/html"
+          >
+            <span>html</span>
+          </a>
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://github.com/topics/css"
+          >
+            <span>css</span>
           </a>
         </CardTopics>
         <Stats>
           {repo.language && (
             <div className="stat">
-              <div className={`dot is-${repo.language.toLowerCase()}`}></div>
+              <div className={`dot is-${convertLanguage()}`}></div>
               <span className="language-name">{repo.language}</span>
             </div>
           )}
           {repo.stargazers_count > 0 && (
-            <div className="stat">
+            <div className="stat branch">
               <a
                 rel="noreferrer"
                 target="_blank"
@@ -63,7 +90,7 @@ const RepositoryCard: React.FC<RepoCardProps> = ({ repo }) => {
             </div>
           )}
           {repo.forks_count > 0 && (
-            <div className="stat">
+            <div className="stat stars">
               <a
                 target="_blank"
                 rel="noreferrer"

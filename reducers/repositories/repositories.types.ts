@@ -5,22 +5,15 @@ export const repositoriesTypes = {
   GET_USER: '[REPO]: GET_USER',
   GET_REPOSITORY_LIST: '[REPO]: GET_REPOSITORY_LIST',
   SEARCH_BY_NAME: '[REPO]: SEARCH_BY_NAME',
-  LOADING_PAGE: '[UI]: LOADING_PAGE',
   SEARCH_BY_TAG: '[REPO]: SEARCH_BY_TAG',
   SET_SEARCH: '[REPO]: SET_SEARCH',
-  IS_ERROR: '[UI]: IS_ERROR',
+  FILTER_SORT: '[REPO]: FILTER_SORT',
 };
 
 export type TRepositoryState = {
   user: IUser | null;
   repositories: IRepositories[] | [];
-  isError: boolean;
-  isLoading: boolean;
-  error: string | null;
   searchByTag: string | null;
-  reposByName: IRepositories[] | [];
-  reposByTag: IRepositories[] | [];
-  searchName: string | null;
 };
 
 export type TRepositoryAction = {

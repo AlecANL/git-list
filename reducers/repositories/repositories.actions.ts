@@ -23,13 +23,6 @@ export function searchRepo(searchValue: string): TRepositoryAction {
   };
 }
 
-export function handleLoadingPage(isLoading: boolean): TRepositoryAction {
-  return {
-    type: actionsTypes.LOADING_PAGE,
-    payload: isLoading,
-  };
-}
-
 type TSearchByTag = {
   tagSearched: string;
 };
@@ -41,9 +34,30 @@ export function filterByTag(search: TSearchByTag): TRepositoryAction {
   };
 }
 
-export function setError(isError: boolean): TRepositoryAction {
+export function sortByName(repos: IRepositories[]): IRepositories[] {
+  return repos.sort((a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
+}
+
+export function sortByLasUpdated(repos: IRepositories[]): IRepositories[] {
+  return repos.sort((a, b) => {
+    return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
+  });
+}
+
+export function sortByStars(repos: IRepositories[]): IRepositories[] {
+  return repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+}
+export function filterBySort(typeSort: string): TRepositoryAction {
   return {
-    type: actionsTypes.IS_ERROR,
-    payload: isError,
+    type: actionsTypes.FILTER_SORT,
+    payload: typeSort,
   };
 }

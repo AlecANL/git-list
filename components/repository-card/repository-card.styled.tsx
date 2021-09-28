@@ -102,22 +102,33 @@ export const Stats = styled.div`
   }
   .stat {
     /* outline: 1px solid red; */
+    border-block-end: 1px solid transparent;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     color: ${({ theme }) => theme.grey2};
     font: var(--caption-regular);
   }
+  .stat i {
+    color: ${({ theme }) => theme.grey};
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
   .stat a {
     display: flex;
     gap: 0.5rem;
     align-items: center;
     text-decoration: none;
+    font: var(--caption-regular);
     color: ${({ theme }) => theme.grey2};
   }
-  .stat:hover a {
+  .stat:hover a,
+  .stat:hover i {
     color: ${({ theme }) => theme.colorTopic};
-    text-decoration: underline;
+  }
+  .branch:hover,
+  .stars:hover {
+    border-color: ${({ theme }) => theme.colorTopic};
   }
   .language-name {
     color: ${({ theme }) => theme.grey};

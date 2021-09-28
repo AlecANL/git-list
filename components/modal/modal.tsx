@@ -1,20 +1,28 @@
 import React from 'react';
 import { ModalStyled } from './modal.styled';
 import { RepositoryContext, TContextType } from '../../context/app-context';
-import { handleLoadingPage } from '../../reducers/repositories/repositories.actions';
+import { handleLoadingPage } from '@reducer/ui/ui.actions';
+import { UIContext } from '../../context/ui.context';
+import { TUIContext } from '../../reducers/ui/ui.types';
+import { handleShowSearchModal } from '../../reducers/ui/ui.actions';
 
 const Modal: React.FC = () => {
   const [searchUser, setSearchUser] = React.useState('');
-  const { setCurrentUser, dispatch, isShowModal, setShowModal } =
-    React.useContext(RepositoryContext) as TContextType;
+  const { setCurrentUser, dispatch } = React.useContext(
+    RepositoryContext
+  ) as TContextType;
+  const { state: uiState } = React.useContext(UIContext) as TUIContext;
+  const { dispatch: uiDispatch } = React.useContext(UIContext) as TContextType;
 
-  const inputRef = React.useRef<HTMLFormElement>();
+  const formRef = React.useRef<HTMLFormElement>();
+  const inputRef = React.useRef<HTMLInputElement>();
+
   function handleShowModal() {
-    setShowModal(!isShowModal);
+    uiDispatch(handleShowSearchModal(!uiState.isShowSearchModal));
   }
 
-  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setSearchUser(event.currentTarget.value);
+  function handleInputChange() {
+    setSearchUser(inputRef.current.value);
   }
 
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
@@ -27,8 +35,8 @@ const Modal: React.FC = () => {
     }
     inputRef.current.classList.remove('is-error');
     setCurrentUser(searchUser);
-    setShowModal(!isShowModal);
-    dispatch(handleLoadingPage(true));
+    handleShowModal();
+    uiDispatch(handleLoadingPage(true));
   }
 
   return (
@@ -40,12 +48,14 @@ const Modal: React.FC = () => {
         <div className="icon">
           <i className="icon-github"></i>
         </div>
-        <form onSubmit={handleSubmit} ref={inputRef}>
+        <form onSubmit={handleSubmit} ref={formRef}>
           <input
             type="text"
             value={searchUser}
             onChange={handleInputChange}
+            ref={inputRef}
             placeholder="search any user..."
+            autoFocus
           />
           <p>Whoops enter a valid name</p>
         </form>

@@ -5,7 +5,7 @@ import { RepositorieContentStyled } from './repositorie-content.styled';
 import { RepositoryContext, TContextType } from '../../context/app-context';
 
 const RepositorieContent: React.FC = () => {
-  const { state, search } = React.useContext(RepositoryContext) as TContextType;
+  const { state } = React.useContext(RepositoryContext) as TContextType;
   return (
     <RepositorieContentStyled>
       <h2 className="cant-repos">Repositories ({state.user.public_repos})</h2>

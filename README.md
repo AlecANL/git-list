@@ -22,13 +22,27 @@ Estilo libre. Lleva el diseño al código utilizando tu framework favorito, o co
 
 - Mándalo a revisión desde tu [perfil](https://leonidasesteban.com/estudiante)
 
-## Desktop
+## Overview
 
-<img width="400px"  src="https://raw.githubusercontent.com/uxcristopher/imagenes/main/Readmes/GitList/Desktop.png" />
+![screenshot](/public/images/design1.png)
 
-## Mobile
+![screenshot](/public/images/design2.png)
 
-<img width="200px"  src="https://raw.githubusercontent.com/uxcristopher/imagenes/main/Readmes/GitList/Mobile.jpg" />
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [Styled Components](https://styled-components.com/) - For styles
+
+### Links
+
+- Solution URL: [repo](https://github.com/AlecANL/huddle-landing-page)
+- Live Site URL: [live demo](https://alecanl.github.io/huddle-landing-page/)
 
 ## Disclaimer
 
@@ -37,6 +51,11 @@ Todas son propuestas, el propósito de **/Proyectos** es brindarte el diseño, e
 ## Revisión
 
 Recuerda mandar tu proyecto a revisión, si aún no conoces como funciona el proceso de revisión lee este post: [Como usar proyectos en 3 pasos](https://leonidasesteban.com/blog/como-usar-proyectos-en-3-pasos)
+
+## Author
+
+- Website - [alec's portfolio](https://alec-portfolio-dev.vercel.app/)
+- Twitter - [@alexei_alvarez4](https://www.twitter.com/alexei_alvarez4)
 
 ## Créditos
 

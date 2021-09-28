@@ -4,7 +4,7 @@
     "paths": {
       "@components/*": ["components/*"],
       "@context/*": ["context/*"],
-      "@reducer/*": ["reducer/*"],
+      "@reducer/*": ["reducers/*"],
       "@service/*": ["service/*"],
       "@types/*": ["types/*"],
       "@customHooks/*": ["hooks/*"]

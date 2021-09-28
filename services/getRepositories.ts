@@ -10,20 +10,20 @@ export function getData(user: string): Promise<any | AxiosResponse<TState>[]> {
     baseURL: 'https://api.github.com/users',
   });
   const getUser = baseAPi.get(`/${user}`);
-  const listRepository = baseAPi.get(`/${user}/repos`);
+  const listRepository = baseAPi.get(`/${user}/repos?per_page=100`);
   return axios
     .all([getUser, listRepository])
     .then(
-      axios.spread((...data) => [
-        {
-          user: data[0].data,
+      axios.spread((...data) => ({
+        user: {
+          data: data[0].data,
           status: data[0].status,
         },
-        {
-          repos: data[1].data,
+        repos: {
+          data: data[1].data,
           status: data[1].status,
         },
-      ])
+      }))
     )
     .catch(err => console.log(`whoops was happen a wrong: ${err}`));
 }

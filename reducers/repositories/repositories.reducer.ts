@@ -1,6 +1,11 @@
 import { TRepositoryState, TRepositoryAction } from './repositories.types';
 import { repositoriesTypes as actionsTypes } from './repositories.types';
 import { IRepositories } from '../../types/repository.type';
+import {
+  sortByName,
+  sortByStars,
+  sortByLasUpdated,
+} from './repositories.actions';
 
 export function RepositoriesReducer(
   state: TRepositoryState,
@@ -17,42 +22,27 @@ export function RepositoriesReducer(
         ...state,
         repositories: action.payload,
       };
-    case actionsTypes.SEARCH_BY_NAME: {
-      let listRepositories: IRepositories[] = [];
-      if (state.searchByTag) {
-        listRepositories = state.reposByTag;
-      } else {
-        listRepositories = state.repositories;
-      }
 
-      const filterByName = listRepositories.filter(repo =>
-        repo.name
-          .toLowerCase()
-          .includes(action.payload.length < 1 ? '' : action.payload)
-      );
-      if (action.payload === '') {
-        return {
-          ...state,
-          reposByName: [],
-        };
-      }
-      return {
-        ...state,
-        reposByName: [...filterByName],
-        searchByTag: null,
-      };
-    }
     case actionsTypes.SET_SEARCH: {
       return {
         ...state,
       };
     }
-
-    case actionsTypes.LOADING_PAGE:
+    case actionsTypes.FILTER_SORT: {
+      let list: IRepositories[] = state.repositories;
+      if (action.payload === 'stars') {
+        list = sortByStars(state.repositories);
+      } else if (action.payload === 'name') {
+        list = sortByName(state.repositories);
+      } else if (action.payload === 'last_updated') {
+        list = sortByLasUpdated(state.repositories);
+      }
       return {
         ...state,
-        isLoading: action.payload,
+        repositories: list,
       };
+    }
+
     case actionsTypes.SEARCH_BY_TAG:
       console.log(action.payload);
       return {
@@ -60,11 +50,7 @@ export function RepositoriesReducer(
         searchByTag: action.payload.tagSearched,
         // reposByTag: [...action.payload.repos],
       };
-    case actionsTypes.IS_ERROR:
-      return {
-        ...state,
-        isError: action.payload,
-      };
+
     default:
       return {
         ...state,

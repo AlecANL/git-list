@@ -1,15 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 import { NotFoundStyled } from './not-found.styled';
-import { RepositoryContext, TContextType } from '../../context/app-context';
+import { UIContext } from '../../context/ui.context';
+import { TUIContext } from '../../reducers/ui/ui.types';
 
 const NotFound: React.FC = () => {
-  const app = React.useContext(RepositoryContext) as TContextType;
-  const { setShowModal, isShowModal } = app;
+  const { handleShowModal } = React.useContext(UIContext) as TUIContext;
 
-  function handleShowModal() {
-    setShowModal(!isShowModal);
-  }
   return (
     <NotFoundStyled>
       <div className="content">

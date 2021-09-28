@@ -6,6 +6,7 @@ import { useDarkMode } from '@customHooks/useDarkMode';
 import { AppContext } from '@context/app-context';
 import '../styles/icons.css';
 import '../styles/colors.css';
+import { UIContextProvider } from '@context/ui.context';
 
 function MyApp({ Component, pageProps }) {
   const { theme, toggleTheme } = useDarkMode();
@@ -15,17 +16,19 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <AppContext>
-        <ThemeProvider theme={themeMode}>
-          <GlobalStyles />
-          <button
-            onClick={toggleTheme}
-            className="btn-float"
-            title="switch dark mode"
-          >
-            {theme === 'dark' ? <RiMoonClearLine /> : <HiSun />}
-          </button>
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <UIContextProvider>
+          <ThemeProvider theme={themeMode}>
+            <GlobalStyles />
+            <button
+              onClick={toggleTheme}
+              className="btn-float"
+              title="switch dark mode"
+            >
+              {theme === 'dark' ? <RiMoonClearLine /> : <HiSun />}
+            </button>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </UIContextProvider>
       </AppContext>
     </>
   );
