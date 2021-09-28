@@ -60,6 +60,11 @@ export function RepositoriesReducer(
         searchByTag: action.payload.tagSearched,
         // reposByTag: [...action.payload.repos],
       };
+    case actionsTypes.IS_ERROR:
+      return {
+        ...state,
+        isError: action.payload,
+      };
     default:
       return {
         ...state,

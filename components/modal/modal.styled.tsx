@@ -1,11 +1,67 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+export const InputAnimation = keyframes`
+0% {
+    transform: translateX(0px);
+    timing-function: ease-in;
+  }
+  37% {
+    transform: translateX(5px);
+    timing-function: ease-out;
+  }
+  55% {
+    transform: translateX(-5px);
+    timing-function: ease-in;
+  }
+  73% {
+    transform: translateX(4px);
+    timing-function: ease-out;
+  }
+  82% {
+    transform: translateX(-4px);
+    timing-function: ease-in;
+  }
+  91% {
+    transform: translateX(2px);
+    timing-function: ease-out;
+  }
+  96% {
+    transform: translateX(-2px);
+    timing-function: ease-in;
+  }
+  100% {
+    transform: translateX(0px);
+    timing-function: ease-in;
+  }
+`;
 
 export const ModalStyled = styled.div`
   position: fixed;
   inset-block: 0;
   inset-inline: 0;
+  z-index: 99999999;
   background-color: ${({ theme }) => theme.layerModal};
   backdrop-filter: blur(5px);
+  form {
+    inline-size: 100%;
+    padding-block: 1rem;
+    p {
+      margin: 0;
+      display: none;
+    }
+    &.is-error p {
+      display: block;
+      color: red;
+    }
+    &.is-error input {
+      color: red;
+      border-color: red;
+      outline: none;
+      animation-name: ${InputAnimation};
+      animation-duration: 0.5s;
+      animation-delay: 0.25s;
+    }
+  }
   .icon {
     inline-size: 60px;
     block-size: 60px;
@@ -44,6 +100,9 @@ export const ModalStyled = styled.div`
     /* margin-inline: 1rem; */
     padding: 1rem;
     /* padding-block: 5rem; */
+    button {
+      padding-block: 0.6rem;
+    }
     button,
     input {
       inline-size: 100%;
@@ -65,7 +124,7 @@ export const ModalStyled = styled.div`
       inset-block-start: 50%;
       inset-inline-start: 50%;
       transform: translate(-50%, -50%);
-      block-size: 15rem;
+      block-size: 20rem;
       border-radius: 12px;
       padding-block: 2rem;
     }

@@ -35,6 +35,7 @@ export const FilterOptionsStyled = styled.div`
   li span {
     margin-inline-start: 1rem;
     text-transform: capitalize;
+    font: var(--body2-regular);
   }
   @media screen and (min-width: 768px) {
     inset-inline-end: 3.125rem;

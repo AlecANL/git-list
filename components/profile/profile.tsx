@@ -10,13 +10,13 @@ const Profile: React.FC = () => {
   const { state } = React.useContext(RepositoryContext) as TContextType;
   const [stars, setStars] = React.useState<IRepositories[]>([]);
   const { user } = state;
-
-  React.useEffect(() => {
-    fetch(`https://api.github.com/users/${user.login}/starred`)
-      .then(response => response.json())
-      .then(setStars)
-      .catch(e => console.log(`whoops was happen a error ${e}`));
-  }, [user.login]);
+  console.log(user);
+  // React.useEffect(() => {
+  //   fetch(`https://api.github.com/users/${user.login}/starred`)
+  //     .then(response => response.json())
+  //     .then(setStars)
+  //     .catch(e => console.log(`whoops was happen a error ${e}`));
+  // }, [user.login]);
 
   return (
     <ProfileStyled>

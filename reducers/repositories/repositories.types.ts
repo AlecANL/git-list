@@ -8,6 +8,7 @@ export const repositoriesTypes = {
   LOADING_PAGE: '[UI]: LOADING_PAGE',
   SEARCH_BY_TAG: '[REPO]: SEARCH_BY_TAG',
   SET_SEARCH: '[REPO]: SET_SEARCH',
+  IS_ERROR: '[UI]: IS_ERROR',
 };
 
 export type TRepositoryState = {

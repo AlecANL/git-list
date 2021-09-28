@@ -19,6 +19,10 @@ export type TContextType = {
   state: TRepositoryState;
   search: string;
   setSearch: Function;
+  currentUser: string;
+  setCurrentUser: Function;
+  isShowModal: boolean;
+  setShowModal: Function;
 };
 
 export const RepositoryContext = React.createContext(null);
@@ -26,11 +30,17 @@ export const RepositoryContext = React.createContext(null);
 const AppContext = ({ children }) => {
   const [search, setSearch] = React.useState<string>('');
   const [state, dispatch] = React.useReducer(RepositoriesReducer, initialValue);
+  const [isShowModal, setShowModal] = React.useState<boolean>(false);
+  const [currentUser, setCurrentUser] = React.useState('leonidasesteban');
   const value: TContextType = {
     state,
     dispatch,
     search,
     setSearch,
+    currentUser,
+    setCurrentUser,
+    isShowModal,
+    setShowModal,
   };
 
   return (

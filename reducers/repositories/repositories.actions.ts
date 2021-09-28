@@ -40,3 +40,10 @@ export function filterByTag(search: TSearchByTag): TRepositoryAction {
     payload: search,
   };
 }
+
+export function setError(isError: boolean): TRepositoryAction {
+  return {
+    type: actionsTypes.IS_ERROR,
+    payload: isError,
+  };
+}

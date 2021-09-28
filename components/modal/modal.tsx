@@ -1,13 +1,34 @@
 import React from 'react';
 import { ModalStyled } from './modal.styled';
+import { RepositoryContext, TContextType } from '../../context/app-context';
+import { handleLoadingPage } from '../../reducers/repositories/repositories.actions';
 
-type TModalProps = {
-  showModal: boolean;
-  setShowModal: Function;
-};
-const Modal: React.FC<TModalProps> = ({ showModal, setShowModal }) => {
+const Modal: React.FC = () => {
+  const [searchUser, setSearchUser] = React.useState('');
+  const { setCurrentUser, dispatch, isShowModal, setShowModal } =
+    React.useContext(RepositoryContext) as TContextType;
+
+  const inputRef = React.useRef<HTMLFormElement>();
   function handleShowModal() {
-    setShowModal(!showModal);
+    setShowModal(!isShowModal);
+  }
+
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearchUser(event.currentTarget.value);
+  }
+
+  function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const value = searchUser.trim().toLowerCase();
+    const regex = /^[A-Za-z0-9 ]+$/;
+    if (!regex.test(value)) {
+      inputRef.current.classList.add('is-error');
+      return;
+    }
+    inputRef.current.classList.remove('is-error');
+    setCurrentUser(searchUser);
+    setShowModal(!isShowModal);
+    dispatch(handleLoadingPage(true));
   }
 
   return (
@@ -19,7 +40,15 @@ const Modal: React.FC<TModalProps> = ({ showModal, setShowModal }) => {
         <div className="icon">
           <i className="icon-github"></i>
         </div>
-        <input type="text" placeholder="search any user..." />
+        <form onSubmit={handleSubmit} ref={inputRef}>
+          <input
+            type="text"
+            value={searchUser}
+            onChange={handleInputChange}
+            placeholder="search any user..."
+          />
+          <p>Whoops enter a valid name</p>
+        </form>
         <button className="btn is-grey">Search</button>
       </div>
     </ModalStyled>
